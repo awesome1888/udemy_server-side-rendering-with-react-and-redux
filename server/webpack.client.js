@@ -1,6 +1,8 @@
 const path = require('path');
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base.js');
 
-module.exports = {
+const config = {
     // the name of the root file
     entry: './src/client/client.js',
 
@@ -8,27 +10,8 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public')
-    },
-
-    // run babel on every file
-    module: {
-        rules: [
-            {
-                test: /\.js?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                options: {
-                    presets: [
-                        'react', // translate jsx
-                        'stage-0', // async code
-                        ['env', {
-                            targets: {
-                                browsers: ['last 2 versions'],
-                            }
-                        }]
-                    ]
-                }
-            }
-        ]
     }
 };
+
+// todo: Object.assign() :)
+module.exports = merge(baseConfig, config);
