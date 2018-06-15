@@ -14,7 +14,7 @@ app.get('*', (req, res) => {
     // some logic to initialize and load data into the store
 
     // matchRouts will look for the route and return a pack of components which are about to be rendered
-    matchRoutes(Routes, req.path);
+    console.dir(matchRoutes(Routes, req.path));
 
     res.send(renderer(req, store));
 });
