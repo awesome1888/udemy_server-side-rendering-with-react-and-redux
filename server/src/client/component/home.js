@@ -5,7 +5,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <Link to="/hi">Say hi!</Link>
+                <Link to="/users">Users</Link>
                 <div className="">
                     I am VERY BEST home component
                 </div>
