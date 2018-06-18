@@ -26,6 +26,8 @@ class UserList extends Component {
 }
 
 function mapStateToProps(state) {
+    console.dir('state');
+    console.dir(state);
     return {
         users: state.users,
     };

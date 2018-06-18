@@ -24,6 +24,7 @@ app.get('*', (req, res) => {
     if (promises.length)
     {
         Promise.all(promises).then(() => {
+            console.dir(store.getState());
             res.send(renderer(req, store));
         });
     }
