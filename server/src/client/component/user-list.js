@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import {connect} from '../../client/react-redux/index.js';
 import {fetchUsers} from '../actions/index.js';
 
 class UserList extends Component {
@@ -25,15 +25,18 @@ class UserList extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        users: state.users,
-    };
-}
+// function mapStateToProps(state) {
+//     console.dir('state');
+//     console.dir(state);
+//     return {
+//         users: state.users,
+//     };
+// }
 
 function loadData(store) {
     store.dispatch(fetchUsers());
 }
 
 export { loadData };
-export default connect(mapStateToProps, {fetchUsers})(UserList);
+//export default connect(mapStateToProps, {fetchUsers})(UserList);
+export default connect(x => x, {fetchUsers})(UserList);
